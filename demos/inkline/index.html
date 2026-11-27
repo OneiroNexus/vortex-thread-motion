@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inkline Vector Lab | Taylor–Green</title>
+<style>
+:root{color-scheme:light;--paper:#f4ecd9;--ink:#223630;--mute:#4b5d51;--line:#aaa38b;--red:#a03926}*{box-sizing:border-box}body{margin:0;background:#e6ddc8;color:var(--ink);font:16px/1.48 system-ui,sans-serif}main{max-width:1040px;margin:auto;padding:clamp(16px,4vw,42px)}header{border-bottom:2px solid var(--ink);padding-bottom:15px;margin-bottom:20px}h1{font:700 clamp(2.1rem,6vw,4.15rem)/1 Georgia,serif;margin:.27em 0 .13em;letter-spacing:-.035em}h2{font:700 1.4rem Georgia,serif;margin:.2em 0 .65em}p{margin:.5em 0}small,.kicker{color:var(--mute)}.kicker{font:700 .78rem system-ui;letter-spacing:.16em;text-transform:uppercase}.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(235px,1fr);gap:18px;align-items:start}figure,aside{background:var(--paper);margin:0;border:1px solid var(--line);padding:12px}#chart{display:block;width:100%;height:auto;touch-action:manipulation;cursor:crosshair}figcaption{font-size:.9rem;margin:.5em 4px 0}.controls{display:grid;gap:10px}label{display:block;font-weight:650}input[type=range]{width:100%;margin:4px 0;accent-color:#245c50}input[type=number]{width:100%;padding:.45em;background:#fff8e8;color:var(--ink);border:1px solid var(--line)}button{border:1px solid #245c50;background:#245c50;color:#fff;padding:.55em .8em;font:inherit;font-weight:650;cursor:pointer}button.secondary{background:transparent;color:var(--ink)}:focus-visible{outline:3px solid #ad511d;outline-offset:2px}.buttons,.coords{display:flex;gap:8px;flex-wrap:wrap}.coords>*{flex:1;min-width:80px}.numbers{display:block;font: .89rem/1.55 ui-monospace,monospace;white-space:pre-wrap;padding:8px;background:#e9dfc5;border-left:3px solid var(--red)}.math{margin-top:16px;border-top:1px solid var(--line);padding-top:10px;font-size:.91rem}code{overflow-wrap:anywhere}a{color:#244d40}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:12px}} </style></head>
+<body><main><header><div class="kicker">OneiroNexus · Mathematical plate 01</div><h1>Inkline Vector Lab</h1><p>Watch a known flow lose speed without changing its vortex pattern.</p></header>
+<div class="grid"><figure>
+<svg id="chart" viewBox="0 0 496 492" aria-label="Taylor–Green velocity field, with x to the right and y upward" role="img">
+<defs><clipPath id="clip"><rect x="48" y="10" width="428" height="428"/></clipPath></defs>
+<rect x="48" y="10" width="428" height="428" fill="#eee5ce" stroke="#857e68"/>
+<g id="grid" stroke="#b7ae94" stroke-width=".65"></g><g id="labels" fill="#394e43" font-size="12" font-family="system-ui"></g>
+<g clip-path="url(#clip)"><g id="field"></g><path id="trail" fill="none" stroke="#a03926" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/><circle id="seed" r="4" fill="#f4ecd9" stroke="#a03926" stroke-width="1.5"/><path id="probeVector" fill="none" stroke="#a03926" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><circle id="probe" r="5" fill="#a03926" stroke="#fff4dc" stroke-width="1.5"/></g>
+</svg><figcaption><strong>Ink arrows</strong> are local velocities on a fixed grid. Length uses a fixed scale across time. <strong style="color:#a03926">Rust dot and trail</strong> show a computed particle and its past positions. Click inside the plot to place its starting point.</figcaption>
+</figure><aside><h2>Run the field</h2><div class="controls">
+<div class="buttons"><button id="play" type="button">Play</button><button id="reset" type="button" class="secondary">Back to t = 0</button></div>
+<div><label for="time">Model time <output id="tVal" for="time"></output></label><input id="time" type="range" min="0" max="8" step=".025" value="1.25"></div>
+<div><label for="visc">Viscosity ν <output id="nVal" for="visc"></output></label><input id="visc" type="range" min="0" max=".45" step=".005" value=".12"></div>
+<div class="coords"><label>Seed x<input id="sx" type="number" min="0" max="6.283185307179586" step="any" value="1.06"></label><label>Seed y<input id="sy" type="number" min="0" max="6.283185307179586" step="any" value="1.20"></label></div>
+<output class="numbers" id="numbers" aria-live="off"></output>
+</div><div class="math"><strong>2D Taylor–Green · periodic square</strong><p><code>v = e<sup>−2νt</sup> (cos x sin y, −sin x cos y)</code></p>
+<p>Exact velocity law. The particle path is numerically integrated (RK4). Time and coordinates are dimensionless. This is not the sphere-to-torus scene.</p>
+<small>Original offline viewer. Lab layout inspired by <a href="https://github.com/SandroMaglione/inkline-town/blob/main/DEVELOPMENT.md">Inkline Town</a>; no game code or assets are bundled. <a href="https://doi.org/10.1002/fld.5339">Benchmark reference</a>.</small></div></aside></div>
+<noscript>This offline visualizer needs JavaScript enabled.</noscript></main>
+<script id="model">
+'use strict';
+const TAU=2*Math.PI;
+function velocity(x,y,t,nu) {
+ const a=Math.exp(-2*nu*t);
+ return [a*Math.cos(x)*Math.sin(y),-a*Math.sin(x)*Math.cos(y)];
+}
+function kinematicPressure(x,y,t,nu){
+ return -.25*(Math.cos(2*x)+Math.cos(2*y))*Math.exp(-4*nu*t);
+}
+function pathline(x,y,t,nu,maxStep=.035){
+ const pts=[[x,y]], n=Math.ceil(t/maxStep);
+ if(n===0)return pts;
+ const h=t/n;
+ for(let i=0;i<n;i++){
+  const s=i*h,[ax,ay]=velocity(x,y,s,nu);
+  const [bx,by]=velocity(x+h*ax/2,y+h*ay/2,s+h/2,nu);
+  const [cx,cy]=velocity(x+h*bx/2,y+h*by/2,s+h/2,nu);
+  const [dx,dy]=velocity(x+h*cx,y+h*cy,s+h,nu);
+  x+=h*(ax+2*bx+2*cx+dx)/6;y+=h*(ay+2*by+2*cy+dy)/6;
+  pts.push([x,y]);
+ }
+ return pts;
+}
+const box={x:48,y:10,w:428};
+function projection(x,y){ return [box.x+box.w*x/TAU,box.y+box.w*(1-y/TAU)]; }
+function arrow(x,y,u,v,scale){
+ const mag=Math.hypot(u,v);
+ if(mag<1e-5)return '';
+ const dx=u/mag,dy=-v/mag, len=scale*mag,h=Math.min(5,len*.35), w=h*.62;
+ const ax=x+len*dx,ay=y+len*dy;
+ const f=v=>v.toFixed(2);
+ return 'M'+f(x)+' '+f(y)+'L'+f(ax)+' '+f(ay)+'M'+f(ax-h*dx-w*dy)+' '+f(ay-h*dy+w*dx)+'L'+f(ax)+' '+f(ay)+'L'+f(ax-h*dx+w*dy)+' '+f(ay-h*dy-w*dx);
+}
+</script>
+<script id="interface">
+'use strict';
+const $=s=>document.getElementById(s), ns='http://www.w3.org/2000/svg', chart=$('chart');
+function svg(name,props,parent){const el=document.createElementNS(ns,name);for(const [k,v] of Object.entries(props))el.setAttribute(k,String(v));parent.append(el);return el;}
+for(let i=0;i<=4;i++){
+ const [x,y]=projection(TAU*i/4,TAU*i/4);
+ svg('path',{d:'M'+x+' 10V438 M48 '+y+'H476'},$('grid'));
+ const tick=['0','π/2','π','3π/2','2π'][i];
+ svg('text',{x,y:455,'text-anchor':'middle'},$('labels')).textContent=tick;
+ svg('text',{x:40,y:Math.max(21,y+4),'text-anchor':'end'},$('labels')).textContent=tick;
+}
+svg('text',{x:262,y:478,'text-anchor':'middle'},$('labels')).textContent='x →';
+svg('text',{x:14,y:224,'text-anchor':'middle',transform:'rotate(-90 14 224)'},$('labels')).textContent='y →';
+const fields=[];
+for(let i=0;i<15;i++)for(let j=0;j<15;j++){
+ const x=TAU*(i+.5)/15,y=TAU*(j+.5)/15;
+ const [p,q]=projection(x,y);
+ fields.push({x,y,p,q,el:svg('path',{fill:'none',stroke:'#255748','stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round'},$('field'))});
+}
+const time=$('time'),visc=$('visc'),play=$('play'),sx=$('sx'),sy=$('sy');
+let s=[1.06,1.2],raf=null,last=null,acc=0;
+const clamp=v=>Math.max(0,Math.min(TAU,v));
+function locate(id,p){$(id).setAttribute('cx',p[0]);$(id).setAttribute('cy',p[1]);}
+function draw(){
+ const t=+time.value,nu=+visc.value;
+ $('tVal').textContent=t.toFixed(3);$('nVal').textContent=nu.toFixed(3);
+ for(const a of fields){const [u,v]=velocity(a.x,a.y,t,nu);a.el.setAttribute('d',arrow(a.p,a.q,u,v,23));a.el.setAttribute('opacity',.57+.4*Math.hypot(u,v));}
+ const points=pathline(...s,t,nu);
+ const p=points[points.length-1], [u,v]=velocity(...p,t,nu), pos=projection(...p);
+ $('trail').setAttribute('d',points.map(([x,y],i)=>{const [a,b]=projection(x,y);return (i?'L':'M')+a.toFixed(2)+' '+b.toFixed(2);}).join(' '));
+ locate('probe',pos);locate('seed',projection(...s));
+ $('probeVector').setAttribute('d',arrow(...pos,u,v,23));
+ $('numbers').textContent='Position ('+p.map(v=>v.toFixed(3)).join(', ')+')\nVelocity ('+[u,v].map(v=>v.toFixed(3)).join(', ')+')\nSpeed    '+Math.hypot(u,v).toFixed(3)+'\nField scale  '+Math.exp(-2*nu*t).toFixed(3);
+}
+function stop(){if(raf!==null)cancelAnimationFrame(raf);raf=null;last=null;acc=0;play.textContent='Play';}
+function tick(ms){
+ if(last===null)last=ms;
+ acc+=Math.min(ms-last,100);last=ms;
+ if(acc>=25){const steps=Math.floor(acc/25);acc-=25*steps;time.value=Math.min(8,+time.value+steps*.025).toFixed(3);draw();}
+ if(+time.value>=8)stop();else raf=requestAnimationFrame(tick);
+}
+play.addEventListener('click',()=>{if(raf!==null){stop();return;}if(+time.value>=8){time.value='0';draw();}play.textContent='Pause';raf=requestAnimationFrame(tick);});
+$('reset').addEventListener('click',()=>{stop();time.value='0';draw();});
+for(const control of [time,visc])control.addEventListener('input',()=>{stop();draw();});
+for(const [axis,control] of [sx,sy].entries())control.addEventListener('change',()=>{stop();if(Number.isFinite(control.valueAsNumber))s[axis]=clamp(control.valueAsNumber);control.value=String(s[axis]);draw();});
+chart.addEventListener('click',event=>{
+ const matrix=chart.getScreenCTM();if(!matrix)return;
+ const point=chart.createSVGPoint();point.x=event.clientX;point.y=event.clientY;
+ const p=point.matrixTransform(matrix.inverse());
+ if(p.x<box.x||p.x>box.x+box.w||p.y<box.y||p.y>box.y+box.w)return;
+ stop();s=[(p.x-box.x)/box.w*TAU,(1-(p.y-box.y)/box.w)*TAU].map(x=>Math.round(clamp(x)*1e6)/1e6).map(clamp);
+ [sx.value,sy.value]=s.map(String);draw();
+});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();}); draw();
+</script></body></html>

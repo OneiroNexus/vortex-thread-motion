@@ -1,0 +1,51 @@
+{
+  "expected_sha256": "d1aa661c76182cd6784a53b127185db4e2d55e7011b1a4564fa53571e401bfa8",
+  "reference_bytes": 117676800,
+  "gzip_level6_bytes": 75882043,
+  "recipe_bytes": 177,
+  "decoder_bytes": 2739,
+  "reference_build_seconds": 0.8630667590000485,
+  "gzip_encode_seconds": 3.8664272349999464,
+  "decoding_to_same_hash_timing_s": {
+    "gzip": [
+      0.5905747210000527,
+      0.6172658440000305,
+      0.5777981479999426
+    ],
+    "recipe": [
+      0.9200036470000441,
+      0.8673900989999765,
+      0.8671954349999851
+    ]
+  },
+  "medians": {
+    "gzip": 0.5905747210000527,
+    "recipe": 0.8673900989999765
+  },
+  "recipe_fresh_process_disk_seconds": 1.1974920370000746,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "zlib": "1.3.2",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "glibc": "2.41"
+  },
+  "renderer_source_sha256": {
+    "render.py": "f9f7a7fe55731a6a00f7e31e972e5290e92ff2e8fa277836095b3cc0de1bd921",
+    "compare.py": "858ff9b21beb3c002849ddfe592662f7a8cef613e12a743df1e9be54be9b8fd1"
+  },
+  "counts": {
+    "frames": 240,
+    "panels": 2,
+    "threads": 71,
+    "samples_per_thread": 141,
+    "tracers_per_panel": 204,
+    "total_xyz_points": 4903200
+  },
+  "tests": [
+    "independent renderer extraction generates canonical target",
+    "gzip (level 6) digest and length match",
+    "fresh decoder process byte compare with original target",
+    "different seed changes digest"
+  ]
+}
