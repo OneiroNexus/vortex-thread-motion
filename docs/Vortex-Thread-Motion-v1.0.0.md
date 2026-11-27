@@ -1,6 +1,6 @@
 # Vortex-Thread Motion
 
-A Navier-Stokes Benchmark and a Compression Hypothesis
+A Research Framework for Particle Collection and Motion Compression
 
 Aaron Michael Weis | OneiroNexus
 ORCID: 0009-0002-1906-148X
@@ -8,17 +8,17 @@ Research edition 1.0.0 | November 26, 2026
 
 ### Abstract
 
-Can a compact description of motion help encode a changing geometry? This paper develops a reproducible starting point for that question. It derives a known decaying two-dimensional Taylor-Green solution, checks passive-trajectory integration against exact segment widths, and measures reversible baseline transforms on five external velocity-snapshot fixtures. Fresh tests recover second-order centered-difference behavior and approximately fourth-order Runge-Kutta behavior over the tested refinements. All 18 compressed packets reconstruct their canonical binary64 targets byte-for-byte. Plain XZ gives the smallest packets in the measured panel; previous-file XOR improves gzip on the all-column target but worsens every velocity-only comparison. The results support a verification harness and a bounded baseline experiment. They do not demonstrate a successful flow-based compressor or physical sphere-to-torus evolution. A previously described authored 3D replay remains outside the reproduced evidence because its original stream and decoder were not supplied for this edition. The paper specifies what a subsequent held-out flow-prediction experiment must measure.
+Can organized motion help gather particles, and can a compact description of that motion reduce the data needed to reconstruct it? Vortex connects these questions while requiring separate physical and coding tests. This edition supplies supporting checks: a known two-dimensional Taylor-Green solution, passive trajectories with exact segment-width references, and reversible compression baselines on five external velocity fixtures. All 18 packets reconstruct their canonical binary64 targets exactly; plain XZ gives the smallest packets in this panel. Recovered original programs also reproduce 117,676,800 bytes of authored geometry against separate reference calculations, with platform-dependent floating-point bytes. These are verification and procedural-replay results. They do not demonstrate particle capture, physical fluid-volume compression, a successful flow-based compressor or arbitrary-video compression. A prescribed donut-shaped morph illustrates the proposal without validating a physical mechanism. The paper specifies separate particle-retention and held-out coding tests, and explains how one physical trajectory dataset could eventually support both.
 
 ### What this edition contributes
 
 The contribution is a transparent research package: an independently checked derivation, executable numerical diagnostics, bit-exact baseline coding, source-linked figures, and explicit boundaries between completed checks and proposed experiments. The Taylor-Green field and predictive residual coding are established methods [1,7-10]. This paper makes no new-solution or codec-priority claim.
 
-### Three distinct questions
+### Two hypotheses, separate evidence
 
-First, does the stated field satisfy the equations, and does the trajectory integrator converge? Second, which simple reversible transforms help on a defined external fixture? Third, can a physically informed predictor outperform strong baselines on unseen runs? The first two receive fresh evidence here. The third remains a research hypothesis.
+The physical hypothesis is that a specified flow and collector can gather and retain particles. The coding hypothesis is that a compact motion model plus exact corrections can beat strong baselines on independent data. Organized motion connects them; success on either test does not prove the other. Both application claims remain untested here.
 
-Code, numerical reports, figures and this manuscript are versioned together. AI assistance is disclosed on page 7. This is a technical preprint with internal computational review; no independent human peer review is claimed.
+Code, numerical reports, figures and this manuscript are versioned together. AI assistance is disclosed in section 7. Paper and original figures: CC BY 4.0. Original code: MIT. This technical preprint has internal computational review; no independent human peer review is claimed.
 
 
 ---
@@ -141,26 +141,55 @@ Predictive floating-point coding predates this work. FPC uses prediction and XOR
 
 ### The authored morph and physical clouds
 
-The earlier draft described a scripted sphere-to-torus morph and exact replay of authored coordinates. Its original stream, decoder and videos were not available in the supplied publishing kit. The stated byte-count arithmetic is consistent: 240 × 2 × (71 × 141 + 204) × 3 × 8 = 117,676,800. That arithmetic does not verify the actual stream, its checksum, or the earlier compressed sizes; those results are not included as fresh measurements here.
+Two additional source archives supplied during review recovered the original programs and demonstration videos. The renderer prescribes a sphere-chart-to-torus shape map while advecting chart coordinates in a Taylor-Green field. Initially distinct chart points can occupy the same physical position and later separate. This is not a single-valued material flow on the initial sphere. Section 6 reports the recovered procedural replay separately from the external-fixture experiment.
 
 For a smooth velocity field with unique trajectories, the finite-time flow map is invertible. It preserves the topology of an intact embedded material surface. A thresholded particle-concentration envelope is a different object and can develop an apparent opening as particles redistribute. Settling-cloud experiments [2-4] motivate a future physical comparison, but their mechanisms and parameters do not validate a prescribed shape map. Dagan’s low-Stokes particle solutions [5] offer a possible intermediate benchmark under their own assumptions.
 
 
 ---
 
-## 6. A testable next experiment
+## 6. Recovered original demonstrations
 
-### Physical data without prescribing the answer
+### A recipe for geometry the author already defined
 
-Select a documented settling-cloud case, beginning with a quiescent comparison [2], and obtain the full methods, geometry, initial conditions and particle-interaction model. Reproduce macroscopic statistics across initializations before interpreting a central opening. Define first persistent opening separately from breakup, and test sensitivity to projection, concentration threshold and resolution. A driven cellular-flow case [4] adds a different forcing regime. No such physical simulation was completed in this edition.
+The recovered recipe generates 240 frames with two panels, each containing 71 threads sampled at 141 points and 204 tracers. Coordinates are stored as C-order XYZ little-endian binary64 triples, before camera projection or styling. The target length is 240 × 2 × (71 × 141 + 204) × 3 × 8 = 117,676,800 bytes. It contains geometry, not video pixels, audio or an MP4 container.
 
-### Freeze the prediction test before using held-out runs
+The original decoder and a separate extraction of the preserved renderer mathematics generated identical full byte streams in the fresh Windows run. Rendering-only PIL imports and font initialization were omitted; numerical functions and initialization were retained. Changing the recipe seed changes the generated stream, and a one-bit target alteration is detected by SHA-256. The unchanged recipe does not reproduce arbitrary alterations of the authored target.
 
-Hold out whole runs or initial conditions before choosing the predictor or tuning its parameters. Freeze the canonical bytes, trajectory IDs, timestamps, masks and layout. Compare the flow predictor with raw coding, general-purpose codecs, previous-value and spatial baselines, and pinned specialized implementations such as FPC and Chimp128. Give baselines equivalent preprocessing and count any reordering map.
+### Count the shared decoder and the platform
 
-Count first states, parameters, resets, corrections, residuals, masks, time values and headers. Report shared decoder/runtime requirements separately. Decode and compare bytes before measuring savings. Record encoding and decoding time, peak process memory and hardware; preserve failures. The present timings measure resident-packet decoding, inverse transform and checksum after a correctness preflight and one designated warmup, with five measured repetitions. Python-traced peak allocation is recorded separately and is not whole-process memory.
+| Representation | Bytes |
+| --- | --- |
+| Reconstructed coordinate stream | 117,676,800 |
+| gzip level 6, fresh Windows stream | 75,882,403 |
+| Recipe JSON | 177 |
+| Recipe and original decoder source | 2,916 |
+| Recipe and decoder, two-entry ZIP | 1,597 |
 
-The hypothesis gains support only when a frozen flow-informed method beats the best prespecified baseline on held-out data at identical fidelity and honestly counted cost. A correct analytic solution, an attractive morph or replay of self-authored data cannot supply that result.
+The two-entry ZIP includes recipe, Python decoder and ZIP overhead. Python, NumPy, mathematical libraries and their compatible floating-point behavior are external requirements. This is not a self-contained 1,597-byte executable or a general-purpose compression ratio.
+
+Fresh Ubuntu CI reproduced the archived Linux checksum and the 75,882,043-byte gzip result. Windows CI matched the local Windows stream, whose gzip result is 360 bytes larger. Both platforms passed full native reference/decoder comparison. The checker separates native agreement from historical agreement: matching a reference on one platform does not establish identical bytes across platforms. Full hashes, environments and linked CI evidence are supplied with the code.
+
+### Viewers and their evidence limits
+
+The original Inkline field checks, passive-segment verifier and Torus viewer DOM-test-double checks passed again. The Torus viewer uses a reduced, rounded trace: 60 frames and 11,520 XYZ triples. It is not the full-precision 240-frame stream. The original videos were recovered and preserved as source evidence; visual appearance alone cannot verify fluid dynamics or compression. See docs/ORIGINAL-DEMONSTRATIONS.md for provenance, tests and remaining limits.
+
+
+---
+
+## 7. Two separate tests, one connection
+
+### Test A: measurable particle collection
+
+Begin by reproducing a documented settling-cloud case [2] with its actual forces and initial conditions; a driven-flow case [4] is a later comparison. Then specify a collector, particle properties, inflow and retention interval. Measure retained inlet-particle mass divided by admitted particle mass after a stated washout period. Count retained, discharged and circulating particles separately, with a mass balance and no double counting. Compare controls under stated throughput and energy conditions, including pumping and gravity. A ring alone is not collection. Initially uniform passive tracers remain uniform in source-free incompressible flow; capture requires boundaries, removal, particle slip or other specified physics. No collection experiment was performed here.
+
+### Test B: compact reconstruction of independent motion
+
+Use independently produced motion and hold out whole runs before choosing or tuning the predictor. Freeze canonical bytes, particle IDs, timestamps, masks and layout. Compare flow prediction with raw coding, general-purpose codecs, previous-value and spatial baselines, and pinned specialized codecs such as FPC and Chimp128. Give baselines equivalent preprocessing and count reordering maps.
+
+Count initialization, model parameters, residuals, resets, corrections, masks and headers. Require exact decoded bytes before comparing file sizes. Report shared runtime, encoding/decoding time, peak process memory and failures. Current timing samples cover resident-packet decoding, inverse transform and checksum, with five repetitions after preflight and warmup; traced Python allocation is not whole-process memory.
+
+The connection is a shared trajectory record: a validated collection experiment could supply the independent data for Test B. Collection efficiency and coding savings must still be reported separately. Neither the current scripted morph nor replay of self-authored coordinates answers either application test.
 
 ### Reproduce this edition
 

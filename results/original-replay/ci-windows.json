@@ -1,0 +1,55 @@
+{
+  "accounting": "Recipe assumes a shared compatible decoder. Two-entry ZIP includes recipe and decoder source, excluding Python/NumPy/runtime dependencies. Temporary coordinate streams are removed after checking.",
+  "adapter": {
+    "coordinate_math_unchanged": true,
+    "description": "PIL/font initialization and the rendering loop are not executed; preserved renderer coordinate definitions feed the archived two-panel sampling order.",
+    "excluded_statements": [
+      "PIL import",
+      "font",
+      "title",
+      "subtitle",
+      "f",
+      "small",
+      "pill"
+    ]
+  },
+  "checker_sha256": "dbb4ddb6efd63266967d81f4445508c92f8f808af5047118034fee021398dbd5",
+  "decoder_bytes": 2739,
+  "decoder_stdout": "117676800 bytes   sha256 8ae57764f83a5ffd5c9009b6d6856ac673317938736861c11cbfe0990edb2e7e",
+  "environment": {
+    "machine": "AMD64",
+    "numpy": "2.3.5",
+    "python": "3.12.10",
+    "system": "Windows",
+    "zlib_runtime": "1.3.1"
+  },
+  "historical_comparison_note": "Historical Linux checksum NOT reproduced on this runtime; native decoder/reference identity is a separate result.",
+  "historical_digest_matched": false,
+  "historical_gzip_level6_bytes": 75882043,
+  "historical_recipe_plus_decoder_zip_bytes": 1597,
+  "historical_sha256": "d1aa661c76182cd6784a53b127185db4e2d55e7011b1a4564fa53571e401bfa8",
+  "native_bytes": 117676800,
+  "native_checks": {
+    "canonical_size_matches_history": true,
+    "changed_seed_changes_hash": true,
+    "full_native_reference_decoder_byte_identity": true,
+    "gzip_round_trip_hash_and_size": true,
+    "one_bit_coordinate_edit_changes_hash": true,
+    "preserved_source_hashes": true
+  },
+  "native_gzip_level6_bytes": 75882403,
+  "native_sha256": "8ae57764f83a5ffd5c9009b6d6856ac673317938736861c11cbfe0990edb2e7e",
+  "recipe_bytes": 177,
+  "recipe_plus_decoder_zip_bytes": 1597,
+  "schema_version": 1,
+  "scope": "Authored pre-camera geometry replay only; no video rendering, physical cloud simulation, external-data flow predictor or general compression validation.",
+  "source_sha256": {
+    "HISTORICAL-README.md": "e5a12a2d247320ac4f3cc5df2b7a4c8b02360ba808f2f5fcfe7c09964da905a3",
+    "decode.py": "471b052b49d988d6d51f12b5a392cd942a32b56c2d5d71b22a88cb01a6cc8aee",
+    "recipe.json": "892616e432d3b1e423684d8899c6d14bf6c48b3401a8768430da6c3b681de6a1",
+    "reference/compare.py": "858ff9b21beb3c002849ddfe592662f7a8cef613e12a743df1e9be54be9b8fd1",
+    "reference/render.py": "f9f7a7fe55731a6a00f7e31e972e5290e92ff2e8fa277836095b3cc0de1bd921",
+    "results.json": "c883c91503803faa78388cf4b0f82cf207680af96b7429d02b175731fc428997"
+  },
+  "status": "PASS"
+}

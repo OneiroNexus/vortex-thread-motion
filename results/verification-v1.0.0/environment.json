@@ -24,7 +24,7 @@
     "tests/test_verification.py": "d6858d487a9a5616b63c4c61d8bc718da8ee9a096117a7e048e347288e7e26c5",
     "tools/benchmark_compression.py": "b1b9bb2693b2c2fcdba1f34d696fed6806954a374debab0b380364576004c7d0",
     "tools/build_figures.py": "aef6d113c67363bb8b3ec58b4a4707b5b95d0a680bbdb18e6fb453c59b5db20b",
-    "tools/build_paper.py": "1f44aa831c543a72e309033e87b800431ab9492f32c84386ce38016f65697e78",
+    "tools/build_paper.py": "5ba4d6876e021d00b9737e8fce6bb91279f59fe0c611abeaf9fff9f0a3643fdd",
     "tools/fetch_reference_data.py": "91b4aa26cdb27caa20bcdc874e91662e183c27e2e20516cf406d878fc54f183c",
     "tools/independent_compression_check.py": "a04bb73a46bbc5b6e8407446f50f505af3f88e325da786106d3ef9b42e51d00a",
     "tools/verify.py": "1abf95da1276d0f42567ab41d9df7d9a7e6805eca9b48197190e936853086c6d"

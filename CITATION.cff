@@ -1,7 +1,10 @@
 cff-version: 1.2.0
-message: "Please cite this versioned paper and its accompanying reproducibility package. The DOI is reserved until the Zenodo deposit is published."
-title: "Vortex-Thread Motion: A Navier-Stokes Benchmark and a Compression Hypothesis"
+message: "Please cite this versioned paper and its accompanying reproducibility package."
+title: "Vortex-Thread Motion: A Research Framework for Particle Collection and Motion Compression"
 version: 1.0.0
+license:
+  - MIT
+  - CC-BY-4.0
 date-released: 2026-11-26
 authors:
   - family-names: Weis

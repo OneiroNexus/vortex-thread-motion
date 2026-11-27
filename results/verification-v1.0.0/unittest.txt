@@ -20,6 +20,6 @@ test_rk4_converges_on_exact_contracting_and_expanding_segments (test_verificatio
 test_rk4_generic_trajectory_convergence_and_first_integral (test_verification.NumericalChecks.test_rk4_generic_trajectory_convergence_and_first_integral) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 0.236s
+Ran 20 tests in 0.336s
 
 OK

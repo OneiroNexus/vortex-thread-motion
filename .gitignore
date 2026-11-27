@@ -9,4 +9,5 @@ results/*
 results/compression-2026-11-26/*
 !results/compression-2026-11-26/compression.json
 !results/independent-compression.json
+!results/original-replay/
 
