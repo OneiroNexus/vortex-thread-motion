@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.reference-data/
+.venv/
+*.vtm
+results/*
+!results/verification-v1.0.0/
+!results/compression-2026-11-26/
+results/compression-2026-11-26/*
+!results/compression-2026-11-26/compression.json
+!results/independent-compression.json
+

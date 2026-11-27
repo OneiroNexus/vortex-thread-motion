@@ -1,0 +1,42 @@
+name: Verify reproducible results
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verification:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install verification dependency
+        run: python -m pip install -r requirements.txt
+      - name: Verify analytic field and integrated tests
+        run: python tools/verify.py --output results/ci-verification
+      - name: Fetch pinned public snapshot fixtures
+        run: python tools/fetch_reference_data.py --output .reference-data
+      - name: Reproduce all 18 compression packets
+        run: python tools/benchmark_compression.py --data .reference-data --output results/ci-compression
+      - name: Independently decode and check compression packets
+        run: python tools/independent_compression_check.py --data .reference-data --results results/ci-compression
+      - name: Preserve new CI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-${{ matrix.os }}
+          if-no-files-found: warn
+          path: |
+            results/ci-verification/
+            results/ci-compression/compression.json

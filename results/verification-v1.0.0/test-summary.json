@@ -1,0 +1,20 @@
+{
+  "counting_policy": "Each unittest method counts once. Samples, grid points, time steps, and acceptance checks are not extra tests.",
+  "diagnostic_error": null,
+  "errors": 0,
+  "expected_failures": 0,
+  "failures": 0,
+  "numerical_acceptance_checks": 8,
+  "numerical_acceptance_failures": [],
+  "schema_version": 1,
+  "scope": "Discovered unittest methods are grouped by class; numerical acceptance checks cover the analytic 2D field, finite differences, passive RK4 trajectories, deformation and decay.",
+  "skipped": 0,
+  "status": "PASS",
+  "test_groups": {
+    "test_compression.CompressionTests": 5,
+    "test_verification.AnalyticChecks": 10,
+    "test_verification.NumericalChecks": 5
+  },
+  "test_methods_run": 20,
+  "unexpected_successes": 0
+}

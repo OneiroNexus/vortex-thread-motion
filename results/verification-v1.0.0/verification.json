@@ -1,0 +1,288 @@
+{
+  "all_numerical_checks_passed": true,
+  "decay": {
+    "periodic_grid_points_per_axis": 32,
+    "rows": [
+      {
+        "amplitude": 1.0,
+        "energy_exact_mean": 0.25,
+        "energy_sampled_mean": 0.25,
+        "enstrophy_exact_mean": 0.5,
+        "enstrophy_sampled_mean": 0.4999999999999995,
+        "t": 0
+      },
+      {
+        "amplitude": 0.7788007830714049,
+        "energy_exact_mean": 0.15163266492815836,
+        "energy_sampled_mean": 0.15163266492815894,
+        "enstrophy_exact_mean": 0.3032653298563167,
+        "enstrophy_sampled_mean": 0.30326532985631627,
+        "t": 0.5
+      },
+      {
+        "amplitude": 0.6065306597126334,
+        "energy_exact_mean": 0.09196986029286058,
+        "energy_sampled_mean": 0.09196986029286157,
+        "enstrophy_exact_mean": 0.18393972058572117,
+        "enstrophy_sampled_mean": 0.1839397205857213,
+        "t": 1
+      },
+      {
+        "amplitude": 0.5,
+        "energy_exact_mean": 0.0625,
+        "energy_sampled_mean": 0.0625,
+        "enstrophy_exact_mean": 0.125,
+        "enstrophy_sampled_mean": 0.12499999999999988,
+        "t": 1.3862943611198906
+      },
+      {
+        "amplitude": 0.36787944117144233,
+        "energy_exact_mean": 0.033833820809153176,
+        "energy_sampled_mean": 0.033833820809153176,
+        "enstrophy_exact_mean": 0.06766764161830635,
+        "enstrophy_sampled_mean": 0.0676676416183066,
+        "t": 2
+      },
+      {
+        "amplitude": 0.1353352832366127,
+        "energy_exact_mean": 0.0045789097221835455,
+        "energy_sampled_mean": 0.004578909722183516,
+        "enstrophy_exact_mean": 0.009157819444367091,
+        "enstrophy_sampled_mean": 0.009157819444367072,
+        "t": 4
+      }
+    ],
+    "viscosity": 0.25
+  },
+  "domain": "[0,2*pi)^2, dimensionless, unit density, no forcing",
+  "field": "u=exp(-2*nu*t)*(cos(x)*sin(y),-sin(x)*cos(y))",
+  "finite_difference_convergence": [
+    {
+      "dt": 0.2,
+      "h": 0.2,
+      "max_absolute_errors": {
+        "divergence": 6.661338147750939e-16,
+        "gradient": 0.0038562544011244704,
+        "laplacian": 0.0034637818079199523,
+        "momentum_residual": 0.005077783180728074,
+        "time_derivative": 0.0004337672072530774
+      }
+    },
+    {
+      "dt": 0.1,
+      "h": 0.1,
+      "max_absolute_errors": {
+        "divergence": 2.3314683517128287e-15,
+        "gradient": 0.0009655108669232026,
+        "laplacian": 0.0008668117789081276,
+        "momentum_residual": 0.0012777235626594552,
+        "time_derivative": 0.00010840114436694304
+      },
+      "observed_orders": {
+        "gradient": 1.9978358287442046,
+        "laplacian": 1.9985573909086893,
+        "momentum_residual": 1.990623052924027,
+        "time_derivative": 2.000541002581922
+      }
+    },
+    {
+      "dt": 0.05,
+      "h": 0.05,
+      "max_absolute_errors": {
+        "divergence": 2.886579864025407e-15,
+        "gradient": 0.00024146825169768515,
+        "laplacian": 0.00021675712644575462,
+        "momentum_residual": 0.0003199501772169211,
+        "time_derivative": 2.70977455690824e-05
+      },
+      "observed_orders": {
+        "gradient": 1.9994589812991206,
+        "laplacian": 1.999639331497807,
+        "momentum_residual": 1.9976565702808229,
+        "time_derivative": 2.0001352521235045
+      }
+    },
+    {
+      "dt": 0.025,
+      "h": 0.025,
+      "max_absolute_errors": {
+        "divergence": 9.43689570931383e-15,
+        "gradient": 6.0372722624491004e-05,
+        "laplacian": 5.419266837303205e-05,
+        "momentum_residual": 8.002002983062417e-05,
+        "time_derivative": 6.774277620524849e-06
+      },
+      "observed_orders": {
+        "gradient": 1.999864746799204,
+        "laplacian": 1.9999098362013648,
+        "momentum_residual": 1.999414193875178,
+        "time_derivative": 2.00003381268658
+      }
+    }
+  ],
+  "finite_difference_parameters": {
+    "sample_points": [
+      [
+        0.23,
+        0.71
+      ],
+      [
+        1.03,
+        2.19
+      ],
+      [
+        2.61,
+        4.17
+      ],
+      [
+        5.31,
+        1.47
+      ]
+    ],
+    "scheme": "second-order centered differences; dt=h",
+    "time": 0.7,
+    "viscosity": 0.25
+  },
+  "numerical_acceptance_checks": {
+    "centered_derivative_and_residual_second_order": true,
+    "energy_enstrophy_quadrature_error_below_1e-13": true,
+    "finite_difference_divergence_below_1e-12": true,
+    "first_integral_drift_below_1e-8": true,
+    "material_area_determinant_error_below_1e-8": true,
+    "rk4_generic_and_exact_segment_orders_above_3_7": true,
+    "rk4_generic_error_below_1e-8": true,
+    "rk4_segment_errors_below_1e-8": true
+  },
+  "pressure": "p=-exp(-4*nu*t)*(cos(2*x)+cos(2*y))/4",
+  "schema_version": 1,
+  "scope": "Fresh independent analytic-field and passive-trajectory verification; no PDE evolution, historical replay, 3D cloud simulation, or compression benchmark.",
+  "trajectory_convergence": {
+    "amplitude": 0.5,
+    "effective_time": 1.0,
+    "end_time": 1.3862943611198906,
+    "generic_initial_points": [
+      [
+        0.23,
+        0.71
+      ],
+      [
+        1.03,
+        2.19
+      ],
+      [
+        2.61,
+        4.17
+      ],
+      [
+        5.31,
+        1.47
+      ]
+    ],
+    "initial_half_width": 0.1,
+    "reference_kind": "refined RK4, not an exact generic trajectory",
+    "reference_steps": 8192,
+    "rows": [
+      {
+        "deformation_max_absolute_determinant_error": 2.7720714756984677e-06,
+        "dt": 0.17328679513998632,
+        "first_integral_max_absolute_drift": 6.562923974828827e-07,
+        "generic_error_against_refined_rk4": 2.03304365394511e-06,
+        "segments": {
+          "contracting": {
+            "absolute_error": 2.295984683209351e-07,
+            "exact": 0.0736289459135128,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.07362917551198112
+          },
+          "expanding": {
+            "absolute_error": 1.3950263271222951e-06,
+            "exact": 0.5407906651876966,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.5407892701613695
+          }
+        },
+        "steps": 8
+      },
+      {
+        "deformation_max_absolute_determinant_error": 1.6389007995165628e-07,
+        "dt": 0.08664339756999316,
+        "first_integral_max_absolute_drift": 4.24466649606714e-08,
+        "generic_error_against_refined_rk4": 1.2561475332385575e-07,
+        "observed_orders": {
+          "contracting": 4.0474006248453875,
+          "expanding": 3.9381606313099513,
+          "generic_trajectory": 4.016563371024261
+        },
+        "segments": {
+          "contracting": {
+            "absolute_error": 1.388609058294854e-08,
+            "exact": 0.0736289459135128,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.07362895979960338
+          },
+          "expanding": {
+            "absolute_error": 9.10076554117012e-08,
+            "exact": 0.5407906651876966,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.5407905741800412
+          }
+        },
+        "steps": 16
+      },
+      {
+        "deformation_max_absolute_determinant_error": 9.95894922084517e-09,
+        "dt": 0.04332169878499658,
+        "first_integral_max_absolute_drift": 2.698106349452445e-09,
+        "generic_error_against_refined_rk4": 7.801514233570647e-09,
+        "observed_orders": {
+          "contracting": 4.026010786961019,
+          "expanding": 3.97095288930555,
+          "generic_trajectory": 4.00910793620661
+        },
+        "segments": {
+          "contracting": {
+            "absolute_error": 8.523735883780859e-10,
+            "exact": 0.0736289459135128,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.07362894676588638
+          },
+          "expanding": {
+            "absolute_error": 5.803660441117131e-09,
+            "exact": 0.5407906651876966,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.5407906593840361
+          }
+        },
+        "steps": 32
+      },
+      {
+        "deformation_max_absolute_determinant_error": 6.136695596126174e-10,
+        "dt": 0.02166084939249829,
+        "first_integral_max_absolute_drift": 1.7004614383253625e-10,
+        "generic_error_against_refined_rk4": 4.859725466374702e-10,
+        "observed_orders": {
+          "contracting": 4.013535610817069,
+          "expanding": 3.985970055856044,
+          "generic_trajectory": 4.004807449693863
+        },
+        "segments": {
+          "contracting": {
+            "absolute_error": 5.277586700991321e-11,
+            "exact": 0.0736289459135128,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.07362894596628866
+          },
+          "expanding": {
+            "absolute_error": 3.6627345600948047e-10,
+            "exact": 0.5407906651876966,
+            "max_transverse_drift": 0.0,
+            "numerical": 0.5407906648214231
+          }
+        },
+        "steps": 64
+      }
+    ],
+    "segment_initial_geometry": "x=pi/2 +/- 0.10; contracting y=+pi/2; expanding y=-pi/2",
+    "viscosity": 0.25
+  }
+}

@@ -1,0 +1,482 @@
+{
+  "protocol_version": "1.0.0",
+  "source_commit": "be5e26a17e0d61f7113ec87e98ffcc0d443c297f",
+  "sources": [
+    {
+      "file": "Run000001.T000.D000.P000.H001.L.vec",
+      "git_blob": "8597bf2dbcaa9e31ac70b508016e83db2ac84192",
+      "sha256": "1d21d8ad3827752e2f0f1bcfb74f16d176c45db5c883cf247e40ffbbdbd2a3d4",
+      "bytes": 179775
+    },
+    {
+      "file": "Run000002.T000.D000.P000.H001.L.vec",
+      "git_blob": "207c98a3b98569f962cfc95bba39e99ac2b37b21",
+      "sha256": "9dd00bfc53d56e15b4fb4c9fb9774d9db6a1dad3ed2cd5f41849f17a25151d3c",
+      "bytes": 179718
+    },
+    {
+      "file": "Run000003.T000.D000.P000.H001.L.vec",
+      "git_blob": "59abbb5b4821137af6b28f86fa0796168030c9bd",
+      "sha256": "83f49ae445c3290476c7a39027be5f4e22064127cc41911b97271c90db8ffd63",
+      "bytes": 179827
+    },
+    {
+      "file": "Run000004.T000.D000.P000.H001.L.vec",
+      "git_blob": "120b7f7e14fb6a637309c2c701f369040dacd5a7",
+      "sha256": "f24b9c6f133bc99bb62528f54c123c1b2f37eef39990675f204798655380159b",
+      "bytes": 179820
+    },
+    {
+      "file": "Run000005.T000.D000.P000.H001.L.vec",
+      "git_blob": "280b5e79978446849cabe6621848f04700791c06",
+      "sha256": "0830acf929a0727be2243a6523d9960837385a5e24512cf4f93bac16ea66990c",
+      "bytes": 179877
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "system": "Windows",
+    "machine": "AMD64",
+    "zlib": "1.3.2"
+  },
+  "repetitions": 5,
+  "warmups": 1,
+  "scope": "Descriptive fixture comparison. Files are ordered by name, not verified chronological frames. No flow predictor or held-out evaluation.",
+  "canonicalization": "All numeric tokens parsed as little-endian binary64 in file,row,column order. Headers and original decimal formatting excluded. Velocity-only retains columns U,V without filtering CHC. Negative zero retained.",
+  "accounting": "Packet bytes include magic, metadata, checksum, transform identifier and compressed residual. Shared decoder/runtime excluded and reported as dependencies. Timing includes decode, transform inversion and checksum. Tracemalloc is Python-traced peak, not whole-process RSS.",
+  "results": [
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "gzip",
+      "transform": "none",
+      "packet_bytes": 337927,
+      "packet_sha256": "96aa7b8be5221c3f97b4b539725d6b2be4edc12aceeffe5bc34f7cbe8bec7356",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        5.8182,
+        5.7822,
+        5.5294,
+        5.5856,
+        5.79
+      ],
+      "median_decode_ms": 5.7822,
+      "python_traced_peak_bytes": 2919704
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "gzip",
+      "transform": "previous_file_xor",
+      "packet_bytes": 314186,
+      "packet_sha256": "af68a12e7077d2c22ab6fb32330c1069a6605e1b24b3e608032a1e5ff546e450",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        5.1382,
+        5.4159,
+        5.6921,
+        5.581,
+        5.4568
+      ],
+      "median_decode_ms": 5.4568,
+      "python_traced_peak_bytes": 2872209
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "gzip",
+      "transform": "previous_point_xor",
+      "packet_bytes": 347471,
+      "packet_sha256": "94a2d17572bffa2b136da96a83ea20961e75a41adb966adab7d3b0a149f6da22",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        5.2628,
+        5.2913,
+        5.199,
+        5.175,
+        5.149
+      ],
+      "median_decode_ms": 5.199,
+      "python_traced_peak_bytes": 2938778
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "bz2",
+      "transform": "none",
+      "packet_bytes": 201120,
+      "packet_sha256": "d4c2d078d500b27ad09980f6a8b8674b18fd1c7dd85420edcadd64a641c71d4a",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        33.2175,
+        37.1973,
+        38.698,
+        45.5718,
+        40.7404
+      ],
+      "median_decode_ms": 38.698,
+      "python_traced_peak_bytes": 2583563
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "bz2",
+      "transform": "previous_file_xor",
+      "packet_bytes": 292438,
+      "packet_sha256": "ac14b3758c24071eda951933d90478ac8ad10ac9076b20c43dd0253c9820560e",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        33.3613,
+        28.6376,
+        35.0603,
+        27.1786,
+        26.0716
+      ],
+      "median_decode_ms": 28.6376,
+      "python_traced_peak_bytes": 2674881
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "bz2",
+      "transform": "previous_point_xor",
+      "packet_bytes": 321258,
+      "packet_sha256": "b522938827746e5ffd959cb30d825e18c8f0666bdc0725b71e24d7b766b223dc",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        33.7151,
+        33.8925,
+        34.6348,
+        34.72,
+        35.2715
+      ],
+      "median_decode_ms": 34.6348,
+      "python_traced_peak_bytes": 2703701
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "lzma",
+      "transform": "none",
+      "packet_bytes": 165896,
+      "packet_sha256": "a73077471c955f625ebc3a2f0e1fd72fd6c778f35e74e1b79d0e0bf11256e998",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        12.9842,
+        12.9902,
+        12.7113,
+        12.7577,
+        12.6483
+      ],
+      "median_decode_ms": 12.7577,
+      "python_traced_peak_bytes": 10794150
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "lzma",
+      "transform": "previous_file_xor",
+      "packet_bytes": 271401,
+      "packet_sha256": "5d87a3207e6600a645076ffd31ec588f75bd05112ec6f71a4ad3735a59a86a39",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        22.6447,
+        22.5472,
+        22.4411,
+        24.6351,
+        36.378
+      ],
+      "median_decode_ms": 22.6447,
+      "python_traced_peak_bytes": 10899655
+    },
+    {
+      "target": "all_columns",
+      "shape": [
+        5,
+        3969,
+        5
+      ],
+      "raw_bytes": 793800,
+      "codec": "lzma",
+      "transform": "previous_point_xor",
+      "packet_bytes": 289362,
+      "packet_sha256": "ee2b3a96f18ab34e048ca516d0996839402f2cd83b5dee124bc593ee0cde8fde",
+      "canonical_sha256": "39f7839e44197419196213afd67f679e838e92dec790db69d99f23e5da8f5d70",
+      "byte_identity": true,
+      "decode_ms": [
+        38.5674,
+        41.6846,
+        40.8705,
+        38.4316,
+        38.6317
+      ],
+      "median_decode_ms": 38.6317,
+      "python_traced_peak_bytes": 10917616
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "gzip",
+      "transform": "none",
+      "packet_bytes": 219464,
+      "packet_sha256": "89d4950c4b41a79cfee87888764e9576150eccb39c9aacae9cc292d47289cda4",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        5.1284,
+        4.4716,
+        4.2932,
+        4.7758,
+        4.4542
+      ],
+      "median_decode_ms": 4.4716,
+      "python_traced_peak_bytes": 1173067
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "gzip",
+      "transform": "previous_file_xor",
+      "packet_bytes": 273189,
+      "packet_sha256": "069791cd0f88d3a9e64df9ca8a097d9e8d1d57c70b22e9bbcbb4cb942f32f32d",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        4.585,
+        4.8662,
+        4.9296,
+        4.814,
+        4.8059
+      ],
+      "median_decode_ms": 4.814,
+      "python_traced_peak_bytes": 1265326
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "gzip",
+      "transform": "previous_point_xor",
+      "packet_bytes": 285399,
+      "packet_sha256": "db285b36b8afd20f01d73834e1208071b420a3b48cb62850646d9b22869366c4",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        4.5235,
+        4.4963,
+        4.503,
+        4.4913,
+        4.5079
+      ],
+      "median_decode_ms": 4.503,
+      "python_traced_peak_bytes": 1289745
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "bz2",
+      "transform": "none",
+      "packet_bytes": 161457,
+      "packet_sha256": "eb4161544877f9b39818ae7ee8e86729e414ee430d3f29971a80ad8974b0fe8f",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        49.9353,
+        36.0241,
+        32.5256,
+        31.8026,
+        31.6678
+      ],
+      "median_decode_ms": 32.5256,
+      "python_traced_peak_bytes": 1115060
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "bz2",
+      "transform": "previous_file_xor",
+      "packet_bytes": 275800,
+      "packet_sha256": "8ff45e14cd8c51f3694f428068d113cc22ad13666806e9b53a896c5e890e0e89",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        40.7784,
+        40.8202,
+        41.4823,
+        45.1612,
+        39.5221
+      ],
+      "median_decode_ms": 40.8202,
+      "python_traced_peak_bytes": 1229403
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "bz2",
+      "transform": "previous_point_xor",
+      "packet_bytes": 289256,
+      "packet_sha256": "9f95038b9dfdd33d249f690e9eb4afa62cee0fac7d2f8d8f1db2ae42b825a23e",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        46.8768,
+        41.7571,
+        45.195,
+        41.8121,
+        44.7875
+      ],
+      "median_decode_ms": 44.7875,
+      "python_traced_peak_bytes": 1242859
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "lzma",
+      "transform": "none",
+      "packet_bytes": 147460,
+      "packet_sha256": "563130f0c816f2cd186f643afe40d19df86b1d763dc09a6125734e48da178787",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        19.4662,
+        18.6211,
+        17.5606,
+        21.7809,
+        19.6408
+      ],
+      "median_decode_ms": 19.4662,
+      "python_traced_peak_bytes": 9250825
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "lzma",
+      "transform": "previous_file_xor",
+      "packet_bytes": 258881,
+      "packet_sha256": "d0bfbb947b56811ef7666f9793b8f609d19b8b001fe73c1b9b6ee55fa2162124",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        31.764,
+        33.1537,
+        32.1007,
+        33.4993,
+        31.3218
+      ],
+      "median_decode_ms": 32.1007,
+      "python_traced_peak_bytes": 9362246
+    },
+    {
+      "target": "velocity_only",
+      "shape": [
+        5,
+        3969,
+        2
+      ],
+      "raw_bytes": 317520,
+      "codec": "lzma",
+      "transform": "previous_point_xor",
+      "packet_bytes": 278750,
+      "packet_sha256": "c192cfb61704f79beae15cc14a3bc83c4e96c30fe1db30fcf60aa4099ec4ba27",
+      "canonical_sha256": "2734a56c7dd7e8564cfc3261e0556dd56ebfad9f650cf4b77bd6cd8aac00d81f",
+      "byte_identity": true,
+      "decode_ms": [
+        36.1195,
+        40.1071,
+        49.3911,
+        42.7523,
+        44.0377
+      ],
+      "median_decode_ms": 42.7523,
+      "python_traced_peak_bytes": 9382115
+    }
+  ]
+}

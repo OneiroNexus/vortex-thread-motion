@@ -1,0 +1,72 @@
+[
+  {
+    "number": 1,
+    "authors": "Ondrej Kincl, Ilya Peshkov, Walter Boscheri (2025)",
+    "title": "Semi-implicit Lagrangian Voronoi approximation for the incompressible Navier-Stokes equations",
+    "details": "International Journal for Numerical Methods in Fluids 97(1), 88-115. Section 5.1.",
+    "url": "https://doi.org/10.1002/fld.5339"
+  },
+  {
+    "number": 2,
+    "authors": "Bloen Metzger, Maxime Nicolas, Elisabeth Guazzelli (2007)",
+    "title": "Falling clouds of particles in viscous fluids",
+    "details": "Journal of Fluid Mechanics 580, 283-301. Published-layout author PDF inspected.",
+    "url": "https://doi.org/10.1017/S0022112007005381"
+  },
+  {
+    "number": 3,
+    "authors": "Florent Pignatel, Maxime Nicolas, Elisabeth Guazzelli (2011)",
+    "title": "A falling cloud of particles at a small but finite Reynolds number",
+    "details": "Journal of Fluid Mechanics 671, 34-51. Publisher abstract and metadata inspected.",
+    "url": "https://doi.org/10.1017/S0022112010005501"
+  },
+  {
+    "number": 4,
+    "authors": "Benjamin Marchetti, Laurence Bergougnoux, Elisabeth Guazzelli (2021)",
+    "title": "Falling clouds of particles in vortical flows",
+    "details": "Journal of Fluid Mechanics 908, A30. Author PDF inspected; figures 4 and 6, Table 4.",
+    "url": "https://doi.org/10.1017/jfm.2020.883"
+  },
+  {
+    "number": 5,
+    "authors": "Yuval Dagan (2025)",
+    "title": "Analytical solutions for particle dispersion in Taylor-Green vortex flows",
+    "details": "Theoretical and Computational Fluid Dynamics 39, article 14. First online December 24, 2024.",
+    "url": "https://doi.org/10.1007/s00162-024-00731-z"
+  },
+  {
+    "number": 6,
+    "authors": "PIVPy contributors",
+    "title": "TSI Insight demonstration fixtures",
+    "details": "Five Run000001-Run000005 .vec files; commit be5e26a17e0d61f7113ec87e98ffcc0d443c297f. Retrieved November 26, 2026. Exact source paths and hashes are recorded in the release.",
+    "url": "https://github.com/alexlib/pivpy/tree/be5e26a17e0d61f7113ec87e98ffcc0d443c297f/pivpy/data/Insight"
+  },
+  {
+    "number": 7,
+    "authors": "Martin Burtscher, Paruj Ratanaworabhan (2009)",
+    "title": "FPC: A High-Speed Compressor for Double-Precision Floating-Point Data",
+    "details": "IEEE Transactions on Computers 58(1), 18-31. Author manuscript and software page inspected.",
+    "url": "https://doi.org/10.1109/TC.2008.131"
+  },
+  {
+    "number": 8,
+    "authors": "Tuomas Pelkonen et al. (2015)",
+    "title": "Gorilla: A Fast, Scalable, In-Memory Time Series Database",
+    "details": "Proceedings of the VLDB Endowment 8(12), 1816-1827. Sections 4.1.1-4.1.2.",
+    "url": "https://doi.org/10.14778/2824032.2824078"
+  },
+  {
+    "number": 9,
+    "authors": "Panagiotis Liakos, Katia Papakonstantinopoulou, Yannis Kotidis (2022)",
+    "title": "Chimp: Efficient Lossless Floating Point Compression for Time Series Databases",
+    "details": "Proceedings of the VLDB Endowment 15(11), 3058-3070.",
+    "url": "https://doi.org/10.14778/3551793.3551852"
+  },
+  {
+    "number": 10,
+    "authors": "Ruiyuan Li, Zheng Li, Yi Wu, Chao Chen, Yu Zheng (2023)",
+    "title": "Elf: Erasing-based Lossless Floating-Point Compression",
+    "details": "Proceedings of the VLDB Endowment 16(7), 1763-1776.",
+    "url": "https://doi.org/10.14778/3587136.3587149"
+  }
+]

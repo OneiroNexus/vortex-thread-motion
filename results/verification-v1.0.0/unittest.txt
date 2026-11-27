@@ -1,0 +1,25 @@
+test_bad_input_rejected (test_compression.CompressionTests.test_bad_input_rejected) ... ok
+test_corrupt_header_and_digest_rejected (test_compression.CompressionTests.test_corrupt_header_and_digest_rejected) ... ok
+test_exact_special_ieee_bit_patterns (test_compression.CompressionTests.test_exact_special_ieee_bit_patterns) ... ok
+test_singleton_axes (test_compression.CompressionTests.test_singleton_axes) ... ok
+test_transform_inverses_random_words (test_compression.CompressionTests.test_transform_inverses_random_words) ... ok
+test_amplitude_decay_and_effective_time_including_zero_viscosity (test_verification.AnalyticChecks.test_amplitude_decay_and_effective_time_including_zero_viscosity) ... ok
+test_divergence_and_vorticity_from_velocity_differences (test_verification.AnalyticChecks.test_divergence_and_vorticity_from_velocity_differences) ... ok
+test_energy_enstrophy_and_dissipation (test_verification.AnalyticChecks.test_energy_enstrophy_and_dissipation) ... ok
+test_exact_paper_segment_values (test_verification.AnalyticChecks.test_exact_paper_segment_values) ... ok
+test_first_integral_has_zero_material_derivative (test_verification.AnalyticChecks.test_first_integral_has_zero_material_derivative) ... ok
+test_invalid_physical_and_integrator_inputs_raise (test_verification.AnalyticChecks.test_invalid_physical_and_integrator_inputs_raise) ... ok
+test_periodicity_and_zero_mean_pressure (test_verification.AnalyticChecks.test_periodicity_and_zero_mean_pressure) ... ok
+test_pressure_cancels_advection_with_required_sign (test_verification.AnalyticChecks.test_pressure_cancels_advection_with_required_sign) ... ok
+test_segment_formula_initial_condition_and_short_time_rate (test_verification.AnalyticChecks.test_segment_formula_initial_condition_and_short_time_rate) ... ok
+test_strain_is_trace_free_and_saddle_has_opposite_rates (test_verification.AnalyticChecks.test_strain_is_trace_free_and_saddle_has_opposite_rates) ... ok
+test_centered_derivatives_converge_at_second_order (test_verification.NumericalChecks.test_centered_derivatives_converge_at_second_order) ... ok
+test_deformation_preserves_area_and_agrees_with_particle_map (test_verification.NumericalChecks.test_deformation_preserves_area_and_agrees_with_particle_map) ... ok
+test_momentum_residual_converges_and_divergence_stays_small (test_verification.NumericalChecks.test_momentum_residual_converges_and_divergence_stays_small) ... ok
+test_rk4_converges_on_exact_contracting_and_expanding_segments (test_verification.NumericalChecks.test_rk4_converges_on_exact_contracting_and_expanding_segments) ... ok
+test_rk4_generic_trajectory_convergence_and_first_integral (test_verification.NumericalChecks.test_rk4_generic_trajectory_convergence_and_first_integral) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.236s
+
+OK

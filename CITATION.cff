@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this versioned paper and its accompanying reproducibility package. The DOI is reserved until the Zenodo deposit is published."
+title: "Vortex-Thread Motion: A Navier-Stokes Benchmark and a Compression Hypothesis"
+version: 1.0.0
+date-released: 2026-11-26
+authors:
+  - family-names: Weis
+    given-names: Aaron Michael
+    affiliation: OneiroNexus
+    orcid: https://orcid.org/0009-0002-1906-148X
+doi: 10.5281/zenodo.24574783
+repository-code: https://github.com/OneiroNexus/vortex-thread-motion
+keywords:
+  - Taylor-Green vortex
+  - incompressible Navier-Stokes
+  - numerical verification
+  - lossless compression
+  - reproducibility
+
